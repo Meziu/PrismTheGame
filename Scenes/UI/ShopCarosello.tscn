@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/UserInterface/Puntatore.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/ChangeScene/ShopCarosello.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Spaceship/MainBody/prisma_giallo.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UserInterface/font.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 4 )
+
+[node name="ShopCarosello" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 200 )
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 362.0
+margin_right = 662.0
+margin_bottom = 600.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 298.0
+size_flags_vertical = 3
+
+[node name="LeftContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 46.0
+margin_bottom = 298.0
+rect_clip_content = true
+custom_constants/separation = -46
+alignment = 1
+
+[node name="Arrow1" type="TextureRect" parent="VBoxContainer/HBoxContainer/LeftContainer"]
+margin_right = 46.0
+margin_bottom = 298.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+flip_h = true
+
+[node name="Button1" type="ToolButton" parent="VBoxContainer/HBoxContainer/LeftContainer"]
+margin_right = 46.0
+margin_bottom = 298.0
+rect_min_size = Vector2( 46, 200 )
+rect_pivot_offset = Vector2( 23, 100 )
+rect_clip_content = true
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SkinWindow" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+margin_left = 50.0
+margin_right = 250.0
+margin_bottom = 298.0
+rect_min_size = Vector2( 200, 0 )
+texture = ExtResource( 3 )
+stretch_mode = 4
+
+[node name="RightContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 254.0
+margin_right = 300.0
+margin_bottom = 298.0
+rect_clip_content = true
+custom_constants/separation = -46
+alignment = 1
+
+[node name="Arrow2" type="TextureRect" parent="VBoxContainer/HBoxContainer/RightContainer"]
+margin_right = 46.0
+margin_bottom = 298.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="Button2" type="ToolButton" parent="VBoxContainer/HBoxContainer/RightContainer"]
+margin_right = 46.0
+margin_bottom = 298.0
+rect_min_size = Vector2( 46, 200 )
+rect_pivot_offset = Vector2( 23, 100 )
+rect_clip_content = true
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Available" type="ToolButton" parent="VBoxContainer"]
+margin_top = 302.0
+margin_right = 300.0
+margin_bottom = 600.0
+mouse_default_cursor_shape = 2
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "<placeholder>"
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/LeftContainer/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RightContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Available" to="." method="_on_Available_pressed"]

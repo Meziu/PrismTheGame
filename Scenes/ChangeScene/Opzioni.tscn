@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/UserInterface/font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/ChangeScene/Opzioni.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 1 )
+
+[node name="Opzioni" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.0117647, 0.164706, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -250.0
+margin_right = 450.0
+margin_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+margin_right = 900.0
+margin_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+margin_right = 900.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 25
+
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 900.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.988235, 0.972549, 0, 1 )
+text = "SETTINGS"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 89.0
+margin_right = 900.0
+margin_bottom = 165.0
+
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 900.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0.4, 0.00392157, 1 )
+text = "ARCADE DIFFICULTY"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 900.0
+margin_bottom = 76.0
+alignment = 1
+
+[node name="ez" type="ToolButton" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 266.0
+margin_right = 386.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 120, 40 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 2 )
+text = "Ez"
+
+[node name="normie" type="ToolButton" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 390.0
+margin_right = 510.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 120, 40 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 2 )
+text = "Normie"
+
+[node name="pro" type="ToolButton" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 514.0
+margin_right = 634.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 120, 40 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Pro"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_top = 190.0
+margin_right = 900.0
+margin_bottom = 500.0
+size_flags_vertical = 3
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indietro" type="ToolButton" parent="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2"]
+margin_top = 276.0
+margin_right = 900.0
+margin_bottom = 310.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.988235, 0.972549, 0, 1 )
+text = "BACK"
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2/ez" to="." method="_on_EZ_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2/normie" to="." method="_on_NORMIE_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer/HBoxContainer2/pro" to="." method="_on_PRO_pressed"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/VBoxContainer2/Indietro" to="." method="_on_Indietro_pressed"]

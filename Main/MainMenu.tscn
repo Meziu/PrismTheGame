@@ -1,0 +1,196 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Main/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/UserInterface/font.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Main/MenuEntries.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_color = Color( 0.0745098, 0.756863, 0.937255, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.0117647, 0.164706, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 62.0
+margin_top = 50.0
+margin_right = -62.0
+margin_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleBox" type="VBoxContainer" parent="VBoxContainer"]
+margin_right = 900.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/TitleBox"]
+margin_right = 900.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.772549, 0.760784, 0.760784, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 3
+text = "Prism - The Game"
+align = 1
+
+[node name="SplashScreen" type="Label" parent="VBoxContainer/TitleBox"]
+margin_top = 68.0
+margin_right = 900.0
+margin_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.0392157, 0.8, 0.94902, 1 )
+text = "Non lo vedrete mai"
+align = 1
+valign = 1
+
+[node name="Magikarp" type="Timer" parent="VBoxContainer/TitleBox/SplashScreen"]
+wait_time = 0.07
+one_shot = true
+autostart = true
+
+[node name="MenuEntries" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 96.0
+margin_right = 900.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 40
+alignment = 1
+script = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MenuEntries"]
+margin_top = 29.0
+margin_right = 900.0
+margin_bottom = 107.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArcadeButton" type="ToolButton" parent="VBoxContainer/MenuEntries/VBoxContainer"]
+margin_right = 900.0
+margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Play"
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuEntries/VBoxContainer"]
+margin_top = 52.0
+margin_right = 900.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.988235, 0.972549, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.0235294, 0.145098, 0.576471, 1 )
+text = "High Score: 0"
+align = 1
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MenuEntries"]
+margin_top = 147.0
+margin_right = 900.0
+margin_bottom = 375.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopButton" type="ToolButton" parent="VBoxContainer/MenuEntries/VBoxContainer2"]
+margin_right = 900.0
+margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Shop"
+
+[node name="OptionsButton" type="ToolButton" parent="VBoxContainer/MenuEntries/VBoxContainer2"]
+margin_top = 52.0
+margin_right = 900.0
+margin_bottom = 100.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Settings"
+
+[node name="RulesButton" type="ToolButton" parent="VBoxContainer/MenuEntries/VBoxContainer2"]
+margin_top = 104.0
+margin_right = 900.0
+margin_bottom = 152.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton2" type="ToolButton" parent="VBoxContainer/MenuEntries/VBoxContainer2"]
+margin_top = 156.0
+margin_right = 900.0
+margin_bottom = 204.0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinCelebration" type="Label" parent="VBoxContainer/MenuEntries/VBoxContainer2"]
+margin_top = 208.0
+margin_right = 900.0
+margin_bottom = 228.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.988235, 0.972549, 0, 1 )
+align = 1
+valign = 1
+[connection signal="pressed" from="VBoxContainer/MenuEntries/VBoxContainer/ArcadeButton" to="VBoxContainer/MenuEntries" method="_on_Arcade_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuEntries/VBoxContainer2/ShopButton" to="VBoxContainer/MenuEntries" method="_on_ShopButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuEntries/VBoxContainer2/OptionsButton" to="VBoxContainer/MenuEntries" method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuEntries/VBoxContainer2/RulesButton" to="VBoxContainer/MenuEntries" method="_on_Rules_pressed"]
+[connection signal="pressed" from="VBoxContainer/MenuEntries/VBoxContainer2/CreditsButton2" to="VBoxContainer/MenuEntries" method="_on_CreditsButton2_pressed"]

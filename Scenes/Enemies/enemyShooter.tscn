@@ -1,0 +1,77 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Scripts/Enemies/enemyShooter.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Proiettile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter00.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter03.png" type="Texture" id=4]
+[ext_resource path="res://Sound/Enemies/shoot_shooterenemy.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter01.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter05.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter04.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter12.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter09.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter02.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter07.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter10.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter08.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter06.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Enemies/enemy_shooter/enemy_shooter11.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "Shooting",
+"speed": 25.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 1.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 36, 26 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 36.5, 26.5 )
+
+[node name="enemyShooter" type="KinematicBody2D"]
+collision_layer = 32
+collision_mask = 41
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+bullet = ExtResource( 2 )
+
+[node name="enemy" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Normal"
+playing = true
+
+[node name="Barrell" type="Position2D" parent="."]
+position = Vector2( 0, 10 )
+
+[node name="Movement" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Shooting" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="Animation" type="Timer" parent="."]
+wait_time = 0.44
+one_shot = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
